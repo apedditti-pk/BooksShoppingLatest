@@ -1,0 +1,18 @@
+<div class = "search-container" *ngIf="outlet.isActivated == false">
+    <div class = "searchInputBox">
+        <mat-form-field>
+            <mat-label>Search Library</mat-label>
+            <input matInput type="text" [(ngModel)]="searchValue">
+            <button mat-button matSuffix mat-icon-button (click) = "searchBtnClicked()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+    </div>
+    <div class = "search-list-container" *ngIf="books$ | async as books">
+        <div class = "book-container"  *ngFor="let book of books" (click) = "bookSelected(book.id)">
+            <book-list [book]="book"></book-list>
+        </div>
+    </div>
+</div>
+
+  <router-outlet #outlet="outlet"></router-outlet>

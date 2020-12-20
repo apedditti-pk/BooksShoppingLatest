@@ -1,0 +1,15 @@
+<div class = "cart-container" *ngIf="outlet.isActivated == false && cartBooks$ | async as cartBooks">
+        <div class = "book-container"  *ngFor="let cartBook of cartBooks">
+            <book-list [book] = cartBook></book-list>
+            <div class = "cart-buttons">
+                <button mat-button matSuffix mat-icon-button (click) = "clearCartClicked(cartBook)">
+                    <mat-icon> remove_shopping_cart</mat-icon>
+                </button>
+            </div>
+        </div>
+        <span><button mat-button matSuffix (click) = "purchaseClicked(cartBooks)" *ngIf="cartBooks?.length > 0">
+            Proceed to purchase
+        </button></span>
+</div>
+
+<router-outlet #outlet="outlet"></router-outlet>

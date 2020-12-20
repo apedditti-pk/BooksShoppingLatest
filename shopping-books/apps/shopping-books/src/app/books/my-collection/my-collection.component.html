@@ -1,0 +1,16 @@
+<div
+  class="collections-container"
+  *ngIf="outlet.isActivated == false && collectionBooks$ | async as books"
+>
+  <div class="book-container" *ngFor="let book of books">
+    <book-list [book]="book"></book-list>
+    <div class="billing-info">
+      <span><b>Name: </b>{{ book.purchaseInfo.name }}</span>
+      <span><b>Email: </b>{{ book.purchaseInfo.email }}</span>
+      <span><b>Phone: </b>{{ book.purchaseInfo.phoneNumber }}</span>
+      <span><b>Address: </b>{{ book.purchaseInfo.address }}</span>
+    </div>
+  </div>
+</div>
+
+<router-outlet #outlet="outlet"></router-outlet>

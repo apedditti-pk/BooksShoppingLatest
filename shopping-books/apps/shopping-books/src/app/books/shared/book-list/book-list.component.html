@@ -1,0 +1,10 @@
+<div class = "book-title-container">
+    <p><b>{{ book.title }}</b></p>
+    <span *ngIf = "book.smallThumbnail"><img [src]= 'book.smallThumbnail'/></span>
+</div>
+<p style="width: 100%; height: 70px;" ellipsis [ellipsis-content]="book.description">
+</p>
+<div class = "book-signature">
+    <span><b>written by</b></span>
+    <span>{{ book.publisher }}</span>
+</div>
