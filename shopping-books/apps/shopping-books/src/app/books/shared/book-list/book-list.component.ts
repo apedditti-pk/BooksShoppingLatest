@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BookItem } from '../../state/book';
+import { BookItem, IBook } from '../../state/book';
 
 @Component({
   selector: 'book-list',
@@ -8,7 +8,7 @@ import { BookItem } from '../../state/book';
 })
 
 export class BookListComponent{
-  @Input() book : BookItem ;
+  @Input() book : IBook ;
 
   constructor() { }
 
