@@ -2,7 +2,7 @@ import { createAction , props} from '@ngrx/store';
 import { Book, BookItem } from './book';
 
 export const Load = createAction('[Book] Load Book',props<{ payload: string }>());
-export const LoadSuccess = createAction('[Book] Load Book Success', props<{ payload: Book }>());
+export const LoadSuccess = createAction('[Book] Load Book Success', props<{ payload: BookItem[] }>());
 export const LoadFail = createAction('[Book] Load Book Failure', props<{ payload: string }>());
 export const AddToCart = createAction('[Cart] Add To Cart', props<{ payload: BookItem }>());
 export const DeleteFromCart = createAction('[Cart] Delete Book From Cart', props<{ payload: BookItem }>());
