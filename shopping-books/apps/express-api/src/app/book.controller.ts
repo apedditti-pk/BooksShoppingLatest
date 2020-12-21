@@ -8,11 +8,11 @@ export const getbooks = (req, res, next) => {
             throw { status : 401 ,message : 'Bad request made'};
         }
         const searchItem = req.params.searchItem;
-          request.get("https://www.googleapis.com/books/v1/volumes?q='+searchItem", (err, body) => {
+          request.get("https://www.googleapis.com/books/v1/volumes?q="+searchItem, (err,response, body) => {
             if (err) {
                 return next(err);
             }
-           // console.log(filterBooks(JSON.parse(body).items));
+            //console.log(body);
             res.send(filterBooks(JSON.parse(body).items));
         });
 
