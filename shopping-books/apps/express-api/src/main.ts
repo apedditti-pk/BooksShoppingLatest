@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+export const app = express();
 
 import * as book from '../src/app/book.controller';
 
@@ -14,6 +14,8 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/search/:searchItem',book.getbooks);
+
+app.get('/search/', book.getbooks);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
