@@ -5,7 +5,7 @@ import { IBook, BookItem } from '../../../../libs/book';
 export const getbooks = (req, res, next) => {
     try{
         if (!req.params.searchItem){
-            throw { status : 400 ,message : 'Bad request made'};
+            throw { status : 401 ,message : 'Bad request made'};
         }
         const searchItem = req.params.searchItem;
           request.get("https://www.googleapis.com/books/v1/volumes?q="+searchItem, (err, response, body) => {

@@ -18,7 +18,7 @@ describe('Book Controller ', () => {
 
     nock('https://www.googleapis.com')
       .get('/books/v1/volumes?q=')
-      .reply(400, new Error());
+      .reply(401, new Error());
   });
 
   it('test if getting 200 response while getting books successfully', (done) => {
@@ -36,7 +36,7 @@ describe('Book Controller ', () => {
   it('Testing whether getting 400 Bad request error when error occurs', (done) => {
     request(main.app)
       .get('/search/')
-      .expect(400)
+      .expect(401)
       .end((err, res) => {
         if (err) throw err;
         console.log(' error ' + err);
